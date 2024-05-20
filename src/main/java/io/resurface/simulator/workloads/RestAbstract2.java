@@ -3,7 +3,7 @@
 package io.resurface.simulator.workloads;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import io.resurface.ndjson.HttpMessage;
 import io.resurface.ndjson.HttpMessages;
 import io.resurface.simulator.Clock;
@@ -34,7 +34,7 @@ public abstract class RestAbstract2 implements Workload {
         // update session-level fields
         if ((session_index < 0) || (++session_index > 4)) {
             session_request_address = faker.internet().ipV4Address();
-            session_user_agent = faker.internet().userAgentAny();
+            session_user_agent = faker.internet().userAgent();
             session_index = 0;
         }
 

@@ -34,7 +34,7 @@ public class RestSmall2 extends RestAbstract2 {
         b.put("handle_github", faker.bothify("github.com/??##.??##"));
         b.put("handle_linkedin", faker.bothify("linkedin.com/??##.??##"));
         b.put("handle_twitter", faker.bothify("@??##??##"));
-        b.put("preferred_currency", faker.currency().code());
+        b.put("preferred_currency", faker.money().currencyCode());
         b.put("programming_language", faker.programmingLanguage().name());
         b.put("title", faker.job().title());
 
@@ -59,7 +59,7 @@ public class RestSmall2 extends RestAbstract2 {
         b.put("payment_total", faker.numerify("###.##"));
         b.put("payment_tax", faker.numerify("##.##"));
         b.put("contract_filename", faker.file().fileName());
-        b.put("contract_filename_sha512", faker.crypto().sha512());
+        b.put("contract_filename_sha512", faker.hashing().sha512());
         b.put("future_order_discount_code", faker.random().hex(32));
         b.put("latitude", faker.address().latitude());
         b.put("longitude", faker.address().longitude());
