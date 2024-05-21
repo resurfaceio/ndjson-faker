@@ -260,7 +260,6 @@ public class ScrapingStuffing implements Workload {
     }
 
     private long seed_from_address(String address) {
-//        return new Random(Integer.parseInt(address.substring(0, address.indexOf('.'))));
         double res = 0;
         String[] octets = address.split("\\.");
         for (int i = 0; i < octets.length; i++) {
