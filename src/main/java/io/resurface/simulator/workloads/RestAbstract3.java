@@ -3,7 +3,7 @@
 package io.resurface.simulator.workloads;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import net.datafaker.Faker;
+import com.github.javafaker.Faker;
 import io.resurface.ndjson.HttpMessage;
 import io.resurface.ndjson.HttpMessages;
 import io.resurface.simulator.Clock;
@@ -39,7 +39,7 @@ public abstract class RestAbstract3 implements Workload {
             } else {
                 session_request_address = "123.123.123.123";
             }
-            session_user_agent = faker.internet().userAgent();
+            session_user_agent = faker.internet().userAgentAny();
             session_index = 0;
         }
 

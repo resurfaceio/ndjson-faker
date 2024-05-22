@@ -12,17 +12,17 @@ and sends these to a remote Resurface database. This command-line utility works 
 
 Download executable jar:
 ```
-wget https://dl.cloudsmith.io/public/resurfaceio/public/maven/io/resurface/resurfaceio-simulator/3.6.4/resurfaceio-simulator-3.6.4.jar
+wget https://dl.cloudsmith.io/public/resurfaceio/public/maven/io/resurface/resurfaceio-simulator/3.6.5/resurfaceio-simulator-3.6.5.jar
 ```
 
 Run with default dialect:
 ```
-java -DWORKLOAD=Coinbroker -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.4.jar
+java -DWORKLOAD=Coinbroker -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.5.jar
 ```
 
 Run with API Connect dialect:
 ```
-java -DDIALECT=ibm -DWORKLOAD=RestSmall2 -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.4.jar
+java -DDIALECT=ibm -DWORKLOAD=RestSmall2 -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.5.jar
 ```
 
 ## Parameters
@@ -45,12 +45,14 @@ URL: override HOST and PORT with custom URL for remote database
 
 * **Minimum** - empty calls with method, url and response code only (12 byte/call)
 * **Coinbroker** (default) - REST and GraphQL calls with injected failures and attacks (500 byte/call average)
-* **RestSmall2** - REST calls with randomized url path, headers, and JSON bodies (2 KB/call average)
-* **RestLarge2** - REST calls with randomized url path, headers, and JSON bodies (8 KB/call average)
+* **RestSmall3** - REST calls with randomized url path, headers, and JSON bodies (2 KB/call average)
+* **RestLarge3** - REST calls with randomized url path, headers, and JSON bodies (8 KB/call average)
+* **ScrapingStuffing** - REST calls including scraping and stuffing attacks (X KB/call average)
 
 ## Dependencies
 
 * Java 17
+* [datafaker-net/datafaker](https://github.com/datafaker-net/datafaker)
 * [DiUS/java-faker](https://github.com/DiUS/java-faker)
 * [resurfaceio/ndjson](https://github.com/resurfaceio/ndjson)
 
@@ -65,7 +67,7 @@ If you want to call this utility from your own Java application, add these secti
 <dependency>
     <groupId>io.resurface</groupId>
     <artifactId>resurfaceio-simulator</artifactId>
-    <version>3.6.4</version>
+    <version>3.6.5</version>
 </dependency>
 ```
 
