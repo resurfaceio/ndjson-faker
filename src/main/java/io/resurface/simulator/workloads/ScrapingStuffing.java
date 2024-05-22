@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * Generates randomized REST messages.
+ * Generates randomized REST messages including scraping and stuffing attacks.
  */
 public class ScrapingStuffing implements Workload {
 
@@ -142,7 +142,6 @@ public class ScrapingStuffing implements Workload {
             k.put("iban", faker.finance().iban());
             b.put("banking_details", k);
         }
-
 
         ObjectNode a = MAPPER.createObjectNode();
         if (with_pii) {
