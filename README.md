@@ -12,17 +12,17 @@ and sends these to a remote Resurface database. This command-line utility works 
 
 Download executable jar:
 ```
-wget https://dl.cloudsmith.io/public/resurfaceio/public/maven/io/resurface/resurfaceio-simulator/3.6.4/resurfaceio-simulator-3.6.4.jar
+wget https://dl.cloudsmith.io/public/resurfaceio/public/maven/io/resurface/resurfaceio-simulator/3.6.5/resurfaceio-simulator-3.6.5.jar
 ```
 
 Run with default dialect:
 ```
-java -DWORKLOAD=Coinbroker -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.4.jar
+java -DWORKLOAD=Coinbroker -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.5.jar
 ```
 
 Run with API Connect dialect:
 ```
-java -DDIALECT=ibm -DWORKLOAD=RestSmall2 -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.4.jar
+java -DDIALECT=ibm -DWORKLOAD=RestSmall2 -DHOST=localhost -DPORT=443 -DBATCH_SIZE=128 -DCLOCK_SKEW_DAYS=0 -DLIMIT_MESSAGES=0 -DLIMIT_MILLIS=0 -DSLEEP_PER_BATCH=0 -Xmx512M -jar resurfaceio-simulator-3.6.5.jar
 ```
 
 ## Parameters
@@ -67,7 +67,7 @@ If you want to call this utility from your own Java application, add these secti
 <dependency>
     <groupId>io.resurface</groupId>
     <artifactId>resurfaceio-simulator</artifactId>
-    <version>3.6.4</version>
+    <version>3.6.5</version>
 </dependency>
 ```
 
