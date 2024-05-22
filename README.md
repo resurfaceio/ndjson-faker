@@ -45,12 +45,14 @@ URL: override HOST and PORT with custom URL for remote database
 
 * **Minimum** - empty calls with method, url and response code only (12 byte/call)
 * **Coinbroker** (default) - REST and GraphQL calls with injected failures and attacks (500 byte/call average)
-* **RestSmall2** - REST calls with randomized url path, headers, and JSON bodies (2 KB/call average)
-* **RestLarge2** - REST calls with randomized url path, headers, and JSON bodies (8 KB/call average)
+* **RestSmall3** - REST calls with randomized url path, headers, and JSON bodies (2 KB/call average)
+* **RestLarge3** - REST calls with randomized url path, headers, and JSON bodies (8 KB/call average)
+* **ScrapingStuffing** - REST calls including scraping and stuffing attacks (X KB/call average)
 
 ## Dependencies
 
 * Java 17
+* [datafaker-net/datafaker](https://github.com/datafaker-net/datafaker)
 * [DiUS/java-faker](https://github.com/DiUS/java-faker)
 * [resurfaceio/ndjson](https://github.com/resurfaceio/ndjson)
 

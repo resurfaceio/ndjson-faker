@@ -77,6 +77,11 @@
             <artifactId>resurfaceio-ndjson</artifactId>
             <version>3.6.4</version>
         </dependency>
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>2.2.2</version>
+        </dependency>
 
         <!-- for testing -->
         <dependency>
