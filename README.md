@@ -5,8 +5,9 @@ This open source Java utility generates simulated API calls (in [NDJSON format](
 and sends these to a remote Resurface database. This command-line utility works with Resurface databases on Kubernetes or Docker.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/resurfaceio/simulator/badge)](https://www.codefactor.io/repository/github/resurfaceio/simulator)
-[![License](https://img.shields.io/github/license/resurfaceio/simulator)](https://github.com/resurfaceio/simulator/blob/v3.6.x/LICENSE)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/resurfaceio/simulator/blob/v3.6.x/CONTRIBUTING.md)
+[![License](https://img.shields.io/github/license/resurfaceio/simulator)](https://github.com/resurfaceio/simulator/blob/v3.6.x/LICENSE)
+[![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=flat-square)](https://cloudsmith.io/~resurfaceio/repos/public/packages/)
 
 ## Usage
 
@@ -58,8 +59,8 @@ URL: override HOST and PORT with custom URL for remote database
 
 ## Installing with Maven
 
-⚠️ We publish our official binaries on [CloudSmith](https://cloudsmith.com) rather than Maven Central, because CloudSmith
-is awesome.
+⚠️ We publish our official binaries on [CloudSmith](https://cloudsmith.io/~resurfaceio/repos/public/packages/) rather than Maven Central,
+because CloudSmith is awesome and **free** for open-source projects.
 
 If you want to call this utility from your own Java application, add these sections to `pom.xml` to install:
 
