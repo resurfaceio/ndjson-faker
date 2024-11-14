@@ -54,6 +54,11 @@ public class Main {
         }
         System.out.println("URL=" + url);
         parsed_url = new URL(url);
+        custom_host = System.getProperty("CUSTOM_HOST", "");
+        if (!custom_host.isEmpty()) {
+            System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
+            System.out.println("CUSTOM_HOST=" + custom_host);
+        }
 
         // read runtime options
         int clock_skew_days = Integer.parseInt(System.getProperty("CLOCK_SKEW_DAYS", "0"));
@@ -122,6 +127,7 @@ public class Main {
                     c.setRequestProperty("Content-Encoding", "deflated");
                     c.setRequestProperty("Content-Type", "application/ndjson; charset=UTF-8");
                     c.setRequestProperty("User-Agent", "Resurface/v3.6.x (simulator)");
+                    if (!custom_host.isEmpty()) c.setRequestProperty("Host", custom_host);
                     c.setDoOutput(true);
                     try (OutputStream os = c.getOutputStream()) {
                         try (DeflaterOutputStream dos = new DeflaterOutputStream(os, true)) {
@@ -175,6 +181,7 @@ public class Main {
     private final long limit_millis;
     private long messages_written;
     private final URL parsed_url;
+    private final String custom_host;
     private final long started = System.currentTimeMillis();
 
     private static final List<String> POISON_BATCH = new ArrayList<>();
