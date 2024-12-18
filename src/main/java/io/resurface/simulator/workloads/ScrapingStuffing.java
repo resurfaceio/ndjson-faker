@@ -50,11 +50,11 @@ public class ScrapingStuffing implements Workload {
         }
 
         // re-set Faker seed using request_address
-        if (which_attacker() < 2) {
+        if (get_which_user() < 2) {
             faker.random().getRandomInternal().setSeed(seed_from_address(session_request_address));
         } else {
             // except for specific attackers that perform scraping (res) / stuffing (req) attacks
-            faker = randomFaker;
+            faker.random().getRandomInternal().setSeed(get_random_seed());
         }
 
         // add request details
@@ -247,6 +247,21 @@ public class ScrapingStuffing implements Workload {
         }
     }
 
+    private long get_random_seed() {
+        return (long) (Math.random() * Long.MAX_VALUE);
+    }
+
+    private boolean is_attacker() {
+        return get_which_user() != -1;
+    }
+
+    private int get_which_user() {
+        for (int i = 0; i < attacker_addresses.length; i++) {
+            if (attacker_addresses[i].equals(session_request_address)) return i;
+        }
+        return -1;
+    }
+
     private long seed_from_address(String address) {
         double res = 0;
         String[] octets = address.split("\\.");
@@ -257,19 +272,10 @@ public class ScrapingStuffing implements Workload {
         return (long) res;
     }
 
-    private int which_attacker() {
-        for (int i = 0; i < attacker_addresses.length; i++) {
-            if (attacker_addresses[i].equals(session_request_address)) return i;
-        }
-        return -1;
-    }
-
     final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    final Faker randomFaker = new Faker();
-    Faker faker = randomFaker;
+    Faker faker = new Faker();
     int session_index = -1;
     String session_request_address;
     String session_user_agent;
     final String[] attacker_addresses = {"123.123.123.123", "205.87.214.29", "192.168.83.193", "80.163.137.141"};
-
 }
